@@ -4,6 +4,14 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const wodTraxxEvents = require('./events.js')
+
 $(() => {
-  // your JS code goes here
+  $('#sign-up-form').on('submit', wodTraxxEvents.onSignUp)
+  $('#sign-in-form').on('submit', wodTraxxEvents.onSignIn)
+  $('#change-password-form').on('submit', wodTraxxEvents.onChangePassword)
+  $('#sign-out-button').on('click', wodTraxxEvents.onSignOut)
+  $('#so-button, #change-password-form').hide()
+  // $('#start-new-game').on('click', gameEvents.onStartNewGame)
+  // $('.box').on('click', gameEvents.onBoxClick)
 })

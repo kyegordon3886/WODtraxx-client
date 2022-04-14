@@ -14,10 +14,7 @@ $(() => {
   $('#add-wod').on('submit', wodTraxxEvents.onCreateWorkout)
   $('#find-wod').on('submit', wodTraxxEvents.onShowWorkout)
   $('#see-all-wods').on('click', wodTraxxEvents.onIndexWorkouts)
-  $('#update-wod').on('submit', '.update-wod-list', wodTraxxEvents.onUpdateWorkout)
-  $('#delete-wod').on('click', 'delete-wod-list', wodTraxxEvents.onDeleteWorkout)
- 
-  // $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').hide()
-  // $('#start-new-game').on('click', gameEvents.onStartNewGame)
-  // $('.box').on('click', gameEvents.onBoxClick)
+  $('#wod-feedback').on('submit', '.update-wod-list', wodTraxxEvents.onUpdateWorkout)
+  $('#wod-feedback').on('click', '.delete-wod-list', wodTraxxEvents.onDeleteWorkout)
+  $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').hide()
 })

@@ -52,8 +52,6 @@ const createWorkout = function (data) {
 }
 
 const showWorkout = function (data) {
-  console.log('this is show workouts')
-  console.log(data.workout.name)
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/workouts/' + data.workout.name

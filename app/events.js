@@ -5,11 +5,9 @@ const getFormFields = require('../lib/get-form-fields.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('Button works')
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
 
   wodTraxxApi
     .signUp(data)
@@ -19,11 +17,9 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('Sign in button works')
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
 
   wodTraxxApi
     .signIn(data)
@@ -33,11 +29,9 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('Password change button works')
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
 
   wodTraxxApi
     .changePassword(data)
@@ -96,7 +90,6 @@ const onIndexWorkouts = () => {
 
 const onUpdateWorkout = function (event) {
   event.preventDefault()
-  console.log('in events.js')
   const updateForm = event.target
   const workoutId = $(updateForm).data('id')
   const data = getFormFields(updateForm)
@@ -104,7 +97,7 @@ const onUpdateWorkout = function (event) {
   console.log(workoutId)
 
   wodTraxxApi
-    .updateBook(data, workoutId)
+    .updateWorkout(data, workoutId)
     .then((response) => wodTraxxUi.onUpdateWorkoutSuccess(response))
     .catch(() => wodTraxxUi.onUpdateWorkoutFailure())
 }
@@ -117,9 +110,9 @@ const onDeleteWorkout = function (event) {
   console.log(workoutId)
   wodTraxxApi
     .deleteWorkout(workoutId)
-    .then(response => console.log(button works))
-    .then((response) => wodTraxxUi.onDeleteBookSuccess(response))
-    .catch(() => wodTraxxUi.onDeleteBookFailure())
+    .then(response => console.log('button works'))
+    .then((response) => wodTraxxUi.onDeleteWorkoutSuccess(response))
+    .catch(() => wodTraxxUi.onDeleteWorkoutFailure())
 }
 
 // const gameOver = function () {

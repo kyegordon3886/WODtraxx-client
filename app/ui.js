@@ -14,9 +14,8 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
   $('#user-feedback-display').html('<p>You are signed in!</p>').show()
   $('form').trigger('reset')
-  // $('#so-button', '#add-wod', '#find-wod', '#see-all-wods').show()
-  // $('#change-password-form').show('2000')
-  // $('#sign-in-form, #sign-up-form').hide('fade-out')
+  $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').show('2000')
+  $('#sign-in-form, #sign-up-form').hide('fade-out')
   store.user = response.user
 }
 
@@ -25,9 +24,7 @@ const onSignInFailure = function () {
 }
 
 const onChangePasswordSuccess = function () {
-  $('#user-feedback-display').html(
-    '<p>Your password has been updated successfully!</p>'
-  )
+  $('#user-feedback-display').html('<p>Your password has been updated successfully!</p>').show()
 
   $('form').trigger('reset')
 }
@@ -38,7 +35,7 @@ const onChangePasswordFailure = function () {
 
 const onSignOutSuccess = function () {
   $('#user-feedback-display').html('<p>Stay Hard!</p>').show()
-  $('#so-button, #change-password-form', '#add-wod', '#find-wod').hide()
+  $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').hide('fade-out')
   $('#sign-in-form, #sign-up-form').show()
 }
 
@@ -47,6 +44,7 @@ const onSignOutFailure = function () {
 }
 
 const onCreateWorkoutSuccess = function (response) {
+  $('#user-feedback-display').hide('fade-out')
   const workoutsHtml = `
                       <div>
                         <h4>New WOD Added</h4>
@@ -55,7 +53,7 @@ const onCreateWorkoutSuccess = function (response) {
                         <p>${response.workout.description}</p>
                       </div>
                     `
-  $('#created-wod').html(workoutsHtml)
+  $('#wod-feedback').html(workoutsHtml)
 
   $('form').trigger('reset')
 
@@ -63,14 +61,15 @@ const onCreateWorkoutSuccess = function (response) {
 }
 
 const onCreateWorkoutFailure = function () {
+  $('#user-feedback-display').hide('fade-out')
   $('#error-message').text('Add WOD Failed')
 }
 
 const onShowWorkoutSuccess = function (response) {
-  // response.workout((workout) => {
-    const workoutsHtml = `
+  $('#user-feedback-display').hide('fade-out')
+  const workoutsHtml = `
                         <div>
-                          <h5>${response.workout.name}</h5>
+                          <h4>${response.workout.name}</h4>
                           <p>${response.workout.type}</p>
                           <p>${response.workout.description}</p>
 
@@ -78,14 +77,13 @@ const onShowWorkoutSuccess = function (response) {
 
                           <form class="update-wod-list" data-id=${response.workout._id}>
                             <button type="submit">Update WOD</button>
-                            <input name="workout[name]" type="text" placeholder="WOD Name">
-                            <input name="workout[type]" type="text" placeholder="WOD Type">
-                            <input name="workout[description]" type="text" placeholder="Description">
+                            <input name="workout[name]" value=${response.workout.name} type="text" placeholder="WOD Name">
+                            <input name="workout[type]" value=${response.workout.type} type="text" placeholder="WOD Type">
+                            <input name="workout[description]" value=${response.workout.description} type="text" placeholder="Description">
                           </form>
                         </div>
                       `
-    $('#found-wod').html(workoutsHtml)
-  // })
+  $('#wod-feedback').html(workoutsHtml)
 
   $('form').trigger('reset')
 }
@@ -95,7 +93,8 @@ const onShowWorkoutFailure = function () {
 }
 
 const onIndexWorkoutsSuccess = function (response) {
-  $('#created-wod').html('')
+  $('#user-feedback-display').hide('fade-out')
+  $('#wod-feedback').html('')
   let workoutsHtml = ''
   // use forEach to display every book
   response.workouts.forEach((workout) => {
@@ -104,7 +103,7 @@ const onIndexWorkoutsSuccess = function (response) {
 
     workoutsHtml += `
                       <div>
-                        <h5>${workout.name}</h5>
+                        <h4>${workout.name}</h4>
                         <p>${workout.type}</p>
                         <p>${workout.description}</p>
 
@@ -112,7 +111,7 @@ const onIndexWorkoutsSuccess = function (response) {
                     `
   })
 
-  $('#found-wod').html(workoutsHtml)
+  $('#wod-feedback').html(workoutsHtml)
 }
 
 const onIndexWorkoutsFailure = function () {
@@ -125,7 +124,7 @@ const onUpdateWorkoutSuccess = function () {
                         <p>The WOD was successfully Updated</p>
                       </div>
                     `
-  $('#update-wod').html(workoutHtml)
+  $('#wod-feedback').html(workoutHtml)
 
   $('form').trigger('reset')
 }
@@ -140,7 +139,7 @@ const onDeleteWorkoutSuccess = function () {
                         <p>The WOD was deleted successfully</p>
                       </div>
                     `
-  $('#delete-wod').html(workoutHtml)
+  $('#wod-feedback').html(workoutHtml)
 
   $('form').trigger('reset')
 }

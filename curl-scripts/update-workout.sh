@@ -3,7 +3,7 @@
 API="http://localhost:4741"
 URL_PATH="/workouts"
 
-curl "${API}${URL_PATH}/${ID}" \
+curl "${API}${URL_PATH}/${NAME}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \

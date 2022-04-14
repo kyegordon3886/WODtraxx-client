@@ -46,15 +46,31 @@
 
       <div></div>
 
-      <button type="button">Add A Wod</button>
+      <h3></h3>
+      <form id="add-wod">
+        <button type="submit" value="Add A Wod">Add A WOD</button><br>
+        <input name="workout[name]" required type="text" placeholder="WOD Name">
+        <input name="workout[type]" required type="text" placeholder="WOD Type"><br>
+        <textarea name="workout[description]" type="text" rows="5" cols="60" placeholder="Workout Description"></textarea><br>
+      </form>
 
       <div></div>
 
-      <button type="submit">Find A Wod</button>
+      <h3></h3>
+      <form id="find-wod">
+        <input name="workout[name]" type="text" placeholder="WOD Name">
+        <button type="submit">Find A WOD</button>
+      </form>
 
       <div></div>
 
-      <button type="submit">See All Wods</button>
+      <h3></h3>
+        <button id="see-all-wods" type="button">See All WODs</button>
+      
+      <section id="created-wod"></section>
+      <section id="found-wod"></section>
+      <section id="update-wod"></section>
+      <section id="delete-wod"></section>
 
     </body>
 </html>

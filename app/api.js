@@ -39,6 +39,57 @@ const signOut = function () {
   })
 }
 
+const createWorkout = function (data) {
+  console.log(data)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/workouts',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data
+  })
+}
+
+const showWorkout = function (data) {
+  console.log('this is show workouts')
+  console.log(data.workout.name)
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/workouts/' + data.workout.name
+  })
+}
+
+const indexWorkouts = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/workouts'
+  })
+}
+
+const updateWorkout = function (data, id) {
+  console.log(data)
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/workouts/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data
+  })
+}
+
+const deleteWorkout = function (id) {
+  console.log(id)
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/workouts/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 // const startNewGame = function () {
 //   return $.ajax({
 //     method: 'POST',
@@ -75,7 +126,12 @@ module.exports = {
   signUp,
   changePassword,
   signIn,
-  signOut
+  signOut,
+  createWorkout,
+  showWorkout,
+  indexWorkouts,
+  updateWorkout,
+  deleteWorkout
   // startNewGame,
   // updateGame,
 }

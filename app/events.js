@@ -52,6 +52,76 @@ const onSignOut = function () {
     .catch(() => wodTraxxUi.onSignOutFailure())
 }
 
+const onCreateWorkout = (event) => {
+  event.preventDefault()
+  console.log('in events.js')
+
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+
+  wodTraxxApi
+    .createWorkout(data)
+    .then((response) => wodTraxxUi.onCreateWorkoutSuccess(response))
+    .catch(() => wodTraxxUi.onCreateWorkoutFailure())
+}
+
+const onShowWorkout = (event) => {
+  event.preventDefault()
+  // store the elements that emitted the event in a variable
+  const form = event.target
+  // pass the form to getFormFields and store the data an object in another variable
+  const data = getFormFields(form)
+  console.log(data)
+
+  wodTraxxApi
+    .showWorkout(data)
+    // .then(response => console.log(response))
+    .then((response) => wodTraxxUi.onShowWorkoutSuccess(response))
+    .catch(() => wodTraxxUi.onShowWorkoutFailure())
+}
+
+const onIndexWorkouts = () => {
+  console.log('Button Works!!!!!')
+  // get the books from the API
+  // check the Network tab!
+  wodTraxxApi
+    .indexWorkouts()
+  // JavaScript Promises
+  // if the request/response is successful, run this callback
+    .then((response) => wodTraxxUi.onIndexWorkoutsSuccess(response))
+  // if the request/response has an error, run this callback
+    .catch(() => wodTraxxUi.onIndexWorkoutsFailure())
+}
+
+const onUpdateWorkout = function (event) {
+  event.preventDefault()
+  console.log('in events.js')
+  const updateForm = event.target
+  const workoutId = $(updateForm).data('id')
+  const data = getFormFields(updateForm)
+  console.log(data)
+  console.log(workoutId)
+
+  wodTraxxApi
+    .updateBook(data, workoutId)
+    .then((response) => wodTraxxUi.onUpdateWorkoutSuccess(response))
+    .catch(() => wodTraxxUi.onUpdateWorkoutFailure())
+}
+
+const onDeleteWorkout = function (event) {
+  const deleteButton = event.target
+
+  // we need to find the id of the workout
+  const workoutId = $(deleteButton).data('id')
+  console.log(workoutId)
+  wodTraxxApi
+    .deleteWorkout(workoutId)
+    .then(response => console.log(button works))
+    .then((response) => wodTraxxUi.onDeleteBookSuccess(response))
+    .catch(() => wodTraxxUi.onDeleteBookFailure())
+}
+
 // const gameOver = function () {
 //   $('.box').off('click')
 //   store.game.over = true
@@ -131,7 +201,12 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onCreateWorkout,
+  onShowWorkout,
+  onIndexWorkouts,
+  onUpdateWorkout,
+  onDeleteWorkout
   //   onStartNewGame,
   //   onBoxClick,
   //   checkForWin,

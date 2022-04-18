@@ -15,7 +15,6 @@ const onSignInSuccess = function (response) {
   $('#user-feedback-display').html('<p>You are signed in!</p>').show()
   $('form').trigger('reset')
   $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').show('2000')
-  $('#wod-feedback').show()
   $('#sign-in-form, #sign-up-form').hide('fade-out')
   store.user = response.user
 }
@@ -69,6 +68,7 @@ const onCreateWorkoutFailure = function () {
 
 const onShowWorkoutSuccess = function (response) {
   $('#user-feedback-display').hide('fade-out')
+  $('#wod-feedback').show()
   const workoutsHtml = `
                         <div>
                           <h4>${response.workout.name}</h4>
@@ -96,6 +96,7 @@ const onShowWorkoutFailure = function () {
 
 const onIndexWorkoutsSuccess = function (response) {
   $('#user-feedback-display').hide('fade-out')
+  $('#wod-feedback').show()
   $('#wod-feedback').html('')
   let workoutsHtml = ''
   // use forEach to display every book

@@ -15,6 +15,7 @@ const onSignInSuccess = function (response) {
   $('#user-feedback-display').html('<p>You are signed in!</p>').show()
   $('form').trigger('reset')
   $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').show('2000')
+  $('#wod-feedback').show()
   $('#sign-in-form, #sign-up-form').hide('fade-out')
   store.user = response.user
 }
@@ -37,6 +38,7 @@ const onSignOutSuccess = function () {
   $('#user-feedback-display').html('<p>Stay Hard!</p>').show()
   $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').hide('fade-out')
   $('#sign-in-form, #sign-up-form').show()
+  $('#wod-feedback').hide('fade-out')
 }
 
 const onSignOutFailure = function () {

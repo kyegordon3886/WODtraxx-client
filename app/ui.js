@@ -151,22 +151,6 @@ const onDeleteWorkoutFailure = function () {
   $('#error-message').text('There was an error')
 }
 
-// const startNewGameSuccess = function (response) {
-// 	$('#game-board').show('fade-in')
-// 	$('#game-display').hide(2000)
-
-// 	console.log('New game start works')
-// 	store.game = response.game
-// 	console.log(store.game)
-// 	$('.box').empty()
-// 	$('.box').on('click')
-// }
-
-// const updateGameSuccess = function (response) {
-// 	store.game = response.game
-// 	console.log(store.game)
-// }
-
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -186,6 +170,4 @@ module.exports = {
   onUpdateWorkoutFailure,
   onDeleteWorkoutSuccess,
   onDeleteWorkoutFailure
-  // startNewGameSuccess,
-  // updateGameSuccess,
 }

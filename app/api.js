@@ -40,7 +40,6 @@ const signOut = function () {
 }
 
 const createWorkout = function (data) {
-  console.log(data)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/workouts',
@@ -66,7 +65,6 @@ const indexWorkouts = function () {
 }
 
 const updateWorkout = function (data, id) {
-  console.log(data)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/workouts/' + id,
@@ -78,7 +76,6 @@ const updateWorkout = function (data, id) {
 }
 
 const deleteWorkout = function (id) {
-  console.log(id)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/workouts/' + id,
@@ -87,38 +84,6 @@ const deleteWorkout = function (id) {
     }
   })
 }
-
-// const startNewGame = function () {
-//   return $.ajax({
-//     method: 'POST',
-//     url: config.apiUrl + '/games',
-//     // where to we get our url for this, use development url in project api
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     },
-//     data: {}
-//   })
-// }
-
-// const updateGame = function (index, value, over) {
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: config.apiUrl + '/games/' + store.game._id,
-//     // where to we get our url for this, use development url in project api
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     },
-//     data: {
-//       game: {
-//         cell: {
-//           index,
-//           value
-//         },
-//         over
-//       }
-//     }
-//   })
-// }
 
 module.exports = {
   signUp,
@@ -130,6 +95,4 @@ module.exports = {
   indexWorkouts,
   updateWorkout,
   deleteWorkout
-  // startNewGame,
-  // updateGame,
 }

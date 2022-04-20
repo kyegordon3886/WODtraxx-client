@@ -31,4 +31,4 @@ The user should be able to:
 [Wireframe 2](https://imgur.com/a/kAOXDcn)
 
 ### **Link to the repo:**
-[WODtraxx-client](https://github.com/kyegordon3886/WODtraxx-client)
+[WODtraxx-client](https://kyegordon3886.github.io/WODtraxx-client/)

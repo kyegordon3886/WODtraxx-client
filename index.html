@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Keep track of your workouts with WODtraxx!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <h3></h3>
+  <form class="right-side main" id="change-password-form">
+    <input name="passwords[old]" type="password" require placeholder="Old Password"><br>
+    <input name="passwords[new]" type="password" placeholder="Enter New Password"><br>
+    <button type="submit" class="button">Change Password</button>
+  </form>
+  <br>
+
+  <div class="right-side main" id="so-button">
+    <button id="sign-out-button" class="button" type="submit">Sign Out</button>
+  </div>
+
+  <div></div>
+
+  <h1>WODtraxx</h1>
+  <h2>A Simple Workout Logger</h2>
+
+  <section id="user-feedback-display"></section>
+
+  <div></div>
+
+  <h3></h3>
+  <form class="center-forms main" id="sign-in-form">
+    <input name="credentials[email]" type="email" require placeholder="Your Email"><br>
+    <input name="credentials[password]" type="password" placeholder="Password"><br>
+    <button type="submit" class="button">Log In</button>
+  </form>
+
+  <div></div>
+
+  <h3></h3>
+  <form class="center-forms main" id="sign-up-form">
+    <input name="credentials[email]" type="email" require placeholder="Email"><br>
+    <input name="credentials[password]" type="password" require placeholder="Password"><br>
+    <input name="credentials[password_confirmation]" type="password" require placeholder="Confirm Password"><br>
+    <button type="submit" class="button">Sign Up</button>
+  </form>
+
+  <div></div>
+
+  <div></div>
+
+  <h3></h3>
+  <form class="main" id="add-wod">
+    <button type="submit" value="Add A Wod">Add A WOD</button><br>
+    <input name="workout[name]" required type="text" placeholder="WOD Name">
+    <input name="workout[type]" required type="text" placeholder="WOD Type"><br>
+    <textarea name="workout[description]" type="text" rows="3" cols="30"
+      placeholder="Workout Description"></textarea><br>
+  </form>
+
+  <div></div>
+
+  <h3></h3>
+  <form class="main" id="find-wod">
+    <input name="workout[name]" type="text" placeholder="WOD Name"><br>
+    <button type="submit">Find A WOD</button>
+  </form>
+
+  <div></div>
+
+  <h3></h3>
+  <button class="main" id="see-all-wods" type="button">See All WODs</button>
+
+  <section id="wod-feedback"></section>
+
+</body>
+
+</html>

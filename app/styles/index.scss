@@ -1,0 +1,62 @@
+@import '~bootstrap/scss/bootstrap';
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&family=Permanent+Marker&family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&family=Permanent+Marker&family=Rubik+Moonrocks&family=Special+Elite&display=swap');
+
+$font-family: 'Rubik Moonrocks', cursive;
+$font-family2: 'Permanent Marker', cursive;
+$font-family3: 'Special Elite',cursive;
+
+body {
+    background-image: url("https://i.imgur.com/ta9lCLw.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    // width: 100px;
+    // height: 50px;
+}
+
+h1 {
+    font-family: $font-family;
+    font-size: 150px;
+}
+
+h2 {
+    font-family: $font-family2;
+    font-size: 50px;
+
+}
+
+#user-feedback-display {
+    color: rgb(150, 4, 4);
+    font-family: $font-family2;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#wod-feedback {
+    font-family: $font-family3;
+    color: rgb(189, 160, 0);
+    width: 30%;
+
+}
+
+h1, h2, h3, #wod-feedback {
+    color: rgba(246, 209, 0, 0.924);
+}
+
+h1, h2, .center-forms, #user-feedback-display {
+    text-align: center;
+
+}
+
+.main {
+    font-family: $font-family3;
+}
+
+.right-side {
+    display: block;
+    text-align: right;
+    border: 0,
+}

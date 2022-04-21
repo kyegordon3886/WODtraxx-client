@@ -14,7 +14,9 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
   $('#user-feedback-display').html('<p>You are signed in!</p>').show()
   $('form').trigger('reset')
-  $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').show('2000')
+  $(
+    '#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods'
+  ).show('2000')
   $('#sign-in-form, #sign-up-form').hide('fade-out')
   store.user = response.user
 }
@@ -24,7 +26,9 @@ const onSignInFailure = function () {
 }
 
 const onChangePasswordSuccess = function () {
-  $('#user-feedback-display').html('<p>Your password has been updated successfully!</p>').show()
+  $('#user-feedback-display')
+    .html('<p>Your password has been updated successfully!</p>')
+    .show()
 
   $('form').trigger('reset')
 }
@@ -35,7 +39,9 @@ const onChangePasswordFailure = function () {
 
 const onSignOutSuccess = function () {
   $('#user-feedback-display').html('<p>Stay Hard!</p>').show()
-  $('#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods').hide('fade-out')
+  $(
+    '#so-button, #change-password-form, #add-wod, #find-wod, #see-all-wods'
+  ).hide('fade-out')
   $('#sign-in-form, #sign-up-form').show()
   $('#wod-feedback').hide('fade-out')
 }
@@ -62,8 +68,7 @@ const onCreateWorkoutSuccess = function (response) {
 }
 
 const onCreateWorkoutFailure = function () {
-  $('#user-feedback-display').hide('fade-out')
-  $('#error-message').text('Add WOD Failed')
+  $('#user-feedback-display').text('You cannot add a WOD that already exists').show()
 }
 
 const onShowWorkoutSuccess = function (response) {
@@ -74,9 +79,7 @@ const onShowWorkoutSuccess = function (response) {
                           <h4>${response.workout.name}</h4>
                           <p>${response.workout.type}</p>
                           <p>${response.workout.description}</p>
-
                           <button class="delete-wod-list" data-id=${response.workout._id}>Delete WOD</button>
-
                           <form class="update-wod-list" data-id=${response.workout._id}>
                             <button type="submit">Update WOD</button>
                             <input name="workout[name]" value=${response.workout.name} type="text" placeholder="WOD Name">
@@ -109,7 +112,6 @@ const onIndexWorkoutsSuccess = function (response) {
                         <h4>${workout.name}</h4>
                         <p>${workout.type}</p>
                         <p>${workout.description}</p>
-
                       </div>
                     `
   })
@@ -133,7 +135,7 @@ const onUpdateWorkoutSuccess = function () {
 }
 
 const onUpdateWorkoutFailure = function () {
-  $('#error-message').text('WOD failed to update')
+  $('#user-feedback-display').text('You cannot edit a WOD that you did not create').show()
 }
 
 const onDeleteWorkoutSuccess = function () {
@@ -148,7 +150,7 @@ const onDeleteWorkoutSuccess = function () {
 }
 
 const onDeleteWorkoutFailure = function () {
-  $('#error-message').text('There was an error')
+  $('#user-feedback-display').text('You cannot delete a WOD that you did not create').show()
 }
 
 module.exports = {
